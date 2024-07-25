@@ -1,0 +1,91 @@
+/* Style global pour le corps de la page */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Fond clair et moderne */
+    color: #333; /* Texte sombre pour un bon contraste */
+}
+
+/* Conteneur principal de la page d'accueil */
+.home-page {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #000000 0%, #131212 80%); /* Dégradé léger pour le fond */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet d'élévation */
+    margin: 20px auto;
+    max-width: 800px; /* Largeur maximale du conteneur */
+}
+
+/* Style pour le conteneur de l'image */
+.img-container {
+    margin-bottom: 20px;
+}
+
+/* Style pour l'image du logo */
+.img1 {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #28a745; /* Bordure verte pour l'image */
+    border-radius: 15px; /* Coins arrondis pour l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'image */
+}
+
+/* Style pour le titre de la page */
+h1 {
+    font-size: 2.5em;
+    color: #ffffff; /* Texte noir pour le titre */
+    margin: 20px 0;
+    font-weight: 700; /* Poids de police plus épais pour le titre */
+    text-transform: uppercase; /* Mettre le texte en majuscules pour un effet moderne */
+}
+
+/* Conteneur pour les boutons */
+.buttons {
+    margin-top: 20px;
+}
+
+/* Style pour les boutons */
+.buttons a {
+    text-decoration: none;
+}
+
+.buttons button {
+    background-color: #28a745; /* Vert moderne pour les boutons */
+    color: #fff; /* Texte blanc pour les boutons */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease; /* Transition fluide pour les interactions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet d'élévation */
+}
+
+/* Style pour le survol des boutons */
+.buttons button:hover {
+    background-color: #218838; /* Vert foncé pour le survol */
+    transform: translateY(-2px); /* Léger déplacement vers le haut pour l'effet de survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+/* Style pour le bouton désactivé ou annulé */
+.buttons button.cancel {
+    background-color: #6c757d; /* Gris moderne pour le bouton annulé */
+}
+
+.buttons button.cancel:hover {
+    background-color: #5a6268; /* Gris foncé pour le survol */
+    transform: translateY(-2px); /* Léger déplacement vers le haut pour l'effet de survol */
+}
+
+/* Style pour les sections et autres éléments */
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff; /* Fond blanc pour les sections */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour les sections */
+    border: 1px solid #ddd; /* Bordure légère pour les sections */
+}
