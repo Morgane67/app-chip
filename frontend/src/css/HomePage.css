@@ -34,7 +34,7 @@ body {
 /* Style pour le titre de la page */
 h1 {
     font-size: 2.5em;
-    color: #ffffff; /* Texte noir pour le titre */
+    color: #666363; /* Texte noir pour le titre */
     margin: 20px 0;
     font-weight: 700; /* Poids de police plus épais pour le titre */
     text-transform: uppercase; /* Mettre le texte en majuscules pour un effet moderne */

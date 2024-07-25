@@ -11,7 +11,8 @@ const HistoryPage = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await fetch('/api/history');
+        const response = await fetch('http://localhost:5000/api/history');
+        
         
         if (!response.ok) {
           throw new Error('Network response was not ok');

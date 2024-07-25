@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +10,8 @@ const AddChipPage = () => {
   const [weight, setWeight] = useState('');
   const [size, setSize] = useState('');
   const [comments, setComments] = useState('');
+  const [loading, setLoading] = useState(false);  // État pour gérer le chargement
+  const [error, setError] = useState(null);  // État pour gérer les erreurs
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,7 +31,7 @@ const AddChipPage = () => {
     };
 
     try {
-      const response = await fetch('/api/add-chip', {
+      const response = await fetch('http://localhost:5000/api/add-chip', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,6 +48,24 @@ const AddChipPage = () => {
     } catch (error) {
       console.error('Error:', error);
       alert('Erreur lors de l\'ajout de l\'enregistrement');
+    } finally {
+      setLoading(false);  // Fin du chargement
+    }
+  };
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        error => {
+          setError('Impossible de récupérer la position');
+        }
+      );
+    } else {
+      setError('La géolocalisation n\'est pas supportée par ce navigateur.');
     }
   };
 
@@ -65,11 +84,12 @@ const AddChipPage = () => {
         </div>
         <div>
           <label>Latitude:</label>
-          <input type="text" value={latitude} onChange={(e) => setLatitude(e.target.value)} required />
+          <input type="text" value={latitude} onChange={(e) => setLatitude(e.target.value)} readOnly />
+          <button type="button" onClick={getLocation}>Obtenir la position actuelle</button>
         </div>
         <div>
           <label>Longitude:</label>
-          <input type="text" value={longitude} onChange={(e) => setLongitude(e.target.value)} required />
+          <input type="text" value={longitude} onChange={(e) => setLongitude(e.target.value)} readOnly />
         </div>
         <div>
           <label>Sexe:</label>
@@ -93,8 +113,9 @@ const AddChipPage = () => {
         </div>
         <div>
           <button type="button" onClick={() => navigate('/database')}>Annuler</button>
-          <button type="submit">Valider et Enregistrer</button>
+          <button type="submit" disabled={loading}>Valider et Enregistrer</button>
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>
   );
